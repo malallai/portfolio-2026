@@ -1,0 +1,13 @@
+---
+import Base from "@/layouts/Base.astro";
+import ComponentShowcase from "@/components/app/ComponentShowcase";
+import "@/styles/global.css";
+---
+
+<Base
+  title="UI Components - Design System"
+  description="Component library showcase for the portfolio design system."
+  noIndex
+>
+  <ComponentShowcase client:load />
+</Base>
