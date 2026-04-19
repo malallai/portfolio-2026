@@ -1,0 +1,183 @@
+---
+import Base from "@/layouts/Base.astro";
+import App from "@/components/app/App";
+import { PROFILE } from "@/data/";
+import "@/styles/global.css";
+---
+
+<Base
+  title={`${PROFILE.name} - ${PROFILE.role}`}
+  description={`${PROFILE.name} - ${PROFILE.role} & ${PROFILE.roleSecondary}. ${PROFILE.location}.`}
+>
+  <!-- Loading shell - visible until React hydrates -->
+  <div id="loading-shell" class="loading-shell">
+    <div class="loading-header glass border border-line rounded-2xl">
+      <div class="loading-avatar"></div>
+      <div class="loading-nav">
+        <div class="loading-pill"></div>
+        <div class="loading-pill"></div>
+        <div class="loading-pill"></div>
+        <div class="loading-pill"></div>
+        <div class="loading-pill"></div>
+      </div>
+      <div class="loading-toggle"></div>
+    </div>
+    <div class="loading-body">
+      <div class="loading-block glass border border-line rounded-lg">
+        <div class="loading-spinner"></div>
+      </div>
+      <div
+        class="loading-block loading-block-sm glass border border-line rounded-lg"
+      >
+      </div>
+    </div>
+    <div class="loading-footer glass-light border border-line-2 rounded-sm">
+      <div class="loading-line"></div>
+    </div>
+  </div>
+
+  <div id="app-root" class="app-root hidden">
+    <App client:load />
+  </div>
+</Base>
+
+<style>
+  .loading-shell {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    padding: 12px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 8px;
+    animation: shellPulse 1.8s ease-in-out infinite;
+  }
+
+  @media (min-width: 768px) {
+    .loading-shell {
+      padding: 20px;
+      gap: 16px;
+    }
+  }
+
+  .loading-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 14px 10px 16px;
+  }
+
+  .loading-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-paper-2);
+  }
+
+  .loading-nav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .loading-pill {
+    width: 80px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--color-paper-2);
+  }
+
+  .loading-toggle {
+    width: 48px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--color-paper-2);
+  }
+
+  .loading-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .loading-body {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+    }
+  }
+
+  .loading-block-sm {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .loading-block-sm {
+      display: flex;
+    }
+  }
+
+  .loading-block {
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 2.5px solid var(--color-line);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  .loading-footer {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .loading-line {
+    width: 200px;
+    height: 10px;
+    border-radius: 4px;
+    background: var(--color-paper-2);
+  }
+
+  .app-root.hidden {
+    display: none;
+  }
+
+  @keyframes shellPulse {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener(
+    "app:ready",
+    () => {
+      document.getElementById("app-root")?.classList.remove("hidden");
+      document.getElementById("loading-shell")?.remove();
+    },
+    { once: true },
+  );
+</script>
