@@ -1,0 +1,20 @@
+---
+import { CV } from "@/components/cv/CV";
+import "@/styles/global.css";
+import "../styles/cv.css";
+---
+
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <title>Malo Allain - Développeur Fullstack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body class="cv-print-body">
+    <div class="cv-stage">
+      <CV client:load showExport />
+    </div>
+  </body>
+</html>
