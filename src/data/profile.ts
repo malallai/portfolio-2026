@@ -21,7 +21,7 @@ export const PROFILE = {
 };
 
 export const CHANNELS = [
-  { label: "Site", value: PROFILE.website, href: PROFILE.websiteUrl },
+  { label: "Site", value: PROFILE.website, href: PROFILE.websiteUrl, kbd: "S" },
   { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}`, kbd: "E" },
   { label: "GitHub", value: PROFILE.github, href: PROFILE.githubUrl, kbd: "G" },
   { label: "LinkedIn", value: PROFILE.linkedin, href: PROFILE.linkedinUrl, kbd: "L" },
