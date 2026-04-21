@@ -1,5 +1,7 @@
+export type PaneKey = "about" | "experiences" | "etudes" | "stack" | "connect";
+
 export interface Tab {
-  key: string;
+  key: PaneKey;
   label: string;
   idx: string;
   kbd: string;

@@ -36,6 +36,9 @@ export function CV({ showExport = false, className }: CVProps) {
       const pageH = pdf.internal.pageSize.getHeight();
       pdf.addImage(imgData, "JPEG", 0, 0, pageW, pageH);
       pdf.save(`${PROFILE.firstName}_${PROFILE.lastName}_CV.pdf`);
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+      alert("Une erreur est survenue lors de la génération du PDF. Veuillez réessayer.");
     } finally {
       setExporting(false);
     }
@@ -58,7 +61,7 @@ export function CV({ showExport = false, className }: CVProps) {
       )}
 
       <div ref={ref} className="cv-page" data-theme="light">
-        <div className="cv-tagrow">
+        <div className="flex justify-between items-center font-mono text-[9px] uppercase tracking-[0.18em] text-ink-3 pt-2">
           <span>
             Curriculum Vitæ <span className="cv-hl">- 2026</span>
           </span>
@@ -68,7 +71,7 @@ export function CV({ showExport = false, className }: CVProps) {
         <CVHeader />
 
         <MarkdownText
-          className="cv-summary"
+          className="font-serif text-[14px] leading-[1.4] text-ink mt-2.5 mb-1 text-pretty block"
           components={{
             strong: ({ node, ...props }) => <strong className="cv-hl" {...props} />,
           }}
@@ -76,12 +79,12 @@ export function CV({ showExport = false, className }: CVProps) {
           {PROFILE.summary}
         </MarkdownText>
 
-        <div className="cv-body-grid">
+        <div className="grid grid-cols-[62%_38%] gap-0 mt-3 flex-1">
           <CVMainColumn />
           <CVSidebar />
         </div>
 
-        <div className="cv-foot">
+        <div className="mt-auto pt-2 border-t border-line-2 flex justify-between font-mono text-[8.5px] text-ink-3 tracking-[0.12em] uppercase">
           <span>
             {PROFILE.name} · {PROFILE.role}
           </span>

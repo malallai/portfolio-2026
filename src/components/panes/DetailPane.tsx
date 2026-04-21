@@ -42,13 +42,7 @@ export function DetailPane({
 }: DetailPaneProps) {
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-[280px_1fr] gap-4 lg:gap-6 lg:h-full animate-pane-in">
-      <DetailSidebar
-        title={sidebarTitle}
-        yearRange={yearRange}
-        items={items}
-        activeId={activeId}
-        onSelect={onSelect}
-      />
+      <DetailSidebar title={sidebarTitle} yearRange={yearRange} items={items} activeId={activeId} onSelect={onSelect} />
 
       <Panel key={activeId} className="p-0 flex flex-col animate-pane-in-fast lg:min-h-0">
         <HeroHeader gradient={detail.palette}>
@@ -92,7 +86,10 @@ export function DetailPane({
             <SectionLabel>{tagsLabel}</SectionLabel>
             <div className="flex flex-wrap gap-2">
               {detail.tags.map((tagName) => (
-                <span key={tagName} className="mono px-3 py-1.5 text-xs bg-paper border border-line rounded-lg text-ink-2">
+                <span
+                  key={tagName}
+                  className="mono px-3 py-1.5 text-xs bg-paper border border-line rounded-lg text-ink-2"
+                >
                   {tagName}
                 </span>
               ))}

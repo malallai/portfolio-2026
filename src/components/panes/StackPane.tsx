@@ -61,7 +61,9 @@ export function StackPane() {
             </div>
             <div className="flex items-baseline justify-between">
               <span className="mono text-[10px] text-ink-3">Outils</span>
-              <span className="text-sm font-medium text-ink">{SKILLS.reduce((sum, category) => sum + category.items.length, 0)}</span>
+              <span className="text-sm font-medium text-ink">
+                {SKILLS.reduce((sum, category) => sum + category.items.length, 0)}
+              </span>
             </div>
           </div>
         </div>

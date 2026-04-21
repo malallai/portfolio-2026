@@ -3,8 +3,18 @@ export function formatDateRange(beginAt: string, endAt: string | null): string {
     if (d.includes("-")) {
       const [year, month] = d.split("-");
       const monthNames = [
-        "Janv.", "Févr.", "Mars", "Avr.", "Mai", "Juin",
-        "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."
+        "Janv.",
+        "Févr.",
+        "Mars",
+        "Avr.",
+        "Mai",
+        "Juin",
+        "Juil.",
+        "Août",
+        "Sept.",
+        "Oct.",
+        "Nov.",
+        "Déc.",
       ];
       return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
     }

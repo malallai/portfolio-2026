@@ -15,7 +15,15 @@ export function MarkdownText({ children, className, components }: MarkdownTextPr
           strong: ({ node, ...props }) => <strong className="font-semibold" {...props} />,
           em: ({ node, ...props }) => <em className="italic" {...props} />,
           a: ({ node, ...props }) => (
-            <a className="text-accent underline hover:no-underline" target="_blank" rel="noopener noreferrer" {...props} />
+            <a
+              className="text-accent underline hover:no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              {...props}
+            >
+              {props.children}
+              <span className="sr-only"> (s'ouvre dans un nouvel onglet)</span>
+            </a>
           ),
           p: ({ node, ...props }) => <span {...props} />,
           ...components,

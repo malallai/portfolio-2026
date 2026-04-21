@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 const t = UI.connect;
 
 export function ConnectPane() {
-
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_380px] gap-4 lg:gap-6 lg:h-full animate-pane-in">
       <Panel className="px-6 py-6 md:px-12 md:py-10 flex flex-col overflow-auto">

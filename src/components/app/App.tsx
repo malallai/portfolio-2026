@@ -12,7 +12,9 @@ import { ConnectPane } from "@/components/panes/ConnectPane";
 import { AppHeader } from "./AppHeader";
 import { AppFooter } from "./AppFooter";
 
-const PANES: Record<string, () => React.JSX.Element> = {
+import type { PaneKey } from "@/data/";
+
+const PANES: Record<PaneKey, () => React.JSX.Element> = {
   about: AboutPane,
   experiences: ProjectsPane,
   etudes: EducationPane,
@@ -23,13 +25,12 @@ const PANES: Record<string, () => React.JSX.Element> = {
 export default function App() {
   const { active, go, goNext, goPrev } = useNavigation();
   const { theme, toggle: toggleTheme } = useTheme();
-  const [activeKeys, setActiveKeys] = useState<string[]>([])
+  const [activeKeys, setActiveKeys] = useState<string[]>([]);
 
   useEffect(() => {
     const onKeyDown = (keyboardEvent: KeyboardEvent) => {
-      if ((keyboardEvent.target as HTMLElement)?.matches?.("input, textarea")) return;
-      if (!activeKeys.includes(keyboardEvent.key))
-        setActiveKeys((prev) => [...prev, keyboardEvent.key]);
+      if ((keyboardEvent.target as HTMLElement)?.matches?.("input, textarea, select, [contenteditable='true']")) return;
+      if (!activeKeys.includes(keyboardEvent.key)) setActiveKeys((prev) => [...prev, keyboardEvent.key]);
 
       if (activeKeys.length > 0) return;
 
@@ -55,17 +56,17 @@ export default function App() {
 
     const onKeyUp = (keyboardEvent: KeyboardEvent) => {
       setActiveKeys((prev) => prev.filter((key) => key !== keyboardEvent.key));
-    }
+    };
 
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("keyup", onKeyUp)
+    window.addEventListener("keyup", onKeyUp);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("keyup", onKeyUp)
+      window.removeEventListener("keyup", onKeyUp);
     };
-  }, [go, goNext, goPrev, toggleTheme, activeKeys, setActiveKeys]);
+  }, [go, goNext, goPrev, toggleTheme, activeKeys]);
 
-  const ActivePane = PANES[active];
+  const ActivePane = PANES[active] ?? PANES.about;
 
   return (
     <div className="relative z-1 h-screen w-screen p-3 md:p-5 grid grid-rows-[auto_1fr_auto] gap-2 md:gap-4">

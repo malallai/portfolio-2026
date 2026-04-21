@@ -1,4 +1,3 @@
-// Barrel re-export - single import point for all data
 export { PROFILE, CHANNELS } from "./profile";
 export { EDUCATION } from "./education";
 export type { Education } from "./education";
@@ -7,4 +6,4 @@ export type { Skill, SkillGroup, SpokenLanguage, SoftSkill } from "./skills";
 export { PROJECTS } from "./projects";
 export type { Project } from "./projects";
 export { TABS, UI } from "./ui";
-export type { Tab } from "./ui";
+export type { Tab, PaneKey } from "./ui";

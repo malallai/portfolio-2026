@@ -1,12 +1,12 @@
 import { Avatar, ThemeToggle } from "@/components/ui";
-import { TABS, PROFILE } from "@/data/";
+import { TABS, PROFILE, type PaneKey } from "@/data/";
 import { FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AppHeaderProps {
-  activePane: string;
+  activePane: PaneKey;
   theme: "light" | "dark";
-  onTabClick: (key: string) => void;
+  onTabClick: (key: PaneKey) => void;
   onThemeToggle: () => void;
 }
 

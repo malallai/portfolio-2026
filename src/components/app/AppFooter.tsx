@@ -1,8 +1,8 @@
 import { Kbd, StatusDot } from "@/components/ui";
-import { UI } from "@/data/";
+import { UI, type PaneKey } from "@/data/";
 
 interface AppFooterProps {
-  activePane: string;
+  activePane: PaneKey;
 }
 
 export function AppFooter({ activePane }: AppFooterProps) {

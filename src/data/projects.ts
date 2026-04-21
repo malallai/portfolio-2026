@@ -58,8 +58,7 @@ export const PROJECTS: Project[] = [
     location: "Président · Infrastructure & Gouvernance",
     role: "Président & Sys Admin",
     status: "Live",
-    summary:
-      "Infrastructure système et réseau complète pour une association communautaire de serveurs de jeux.",
+    summary: "Infrastructure système et réseau complète pour une association communautaire de serveurs de jeux.",
     highlights: [
       "Mise en place et gestion complète de l'infrastructure système et réseau.",
       "Développement et maintenance de serveurs de jeux communautaires.",
@@ -111,8 +110,7 @@ export const PROJECTS: Project[] = [
     location: "Projet « Instance RP »",
     role: "Lead Développeur & Sys Admin",
     status: "Fermé",
-    summary:
-      "Projet communautaire complet : site web, applications Java, infrastructure réseau et système.",
+    summary: "Projet communautaire complet : site web, applications Java, infrastructure réseau et système.",
     highlights: [
       "Administration technique complète du projet Instance RP.",
       "Développement du site web et d'applications Java spécifiques.",
