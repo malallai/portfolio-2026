@@ -45,12 +45,11 @@ export const SKILLS: SkillGroup[] = [
     label: "Backend & Data",
     items: [
       { name: "Ruby on Rails", primary: true, tone: "accent" },
-      { name: "Node.js", tone: "sky" },
       { name: "FastAPI", tone: "mint" },
-      { name: "PostgreSQL", tone: "sky" },
-      { name: "MySQL", tone: "neutral" },
-      { name: "MongoDB", tone: "peach" },
+      { name: "PostgreSQL", primary: true, tone: "sky" },
       { name: "Redis", tone: "peach" },
+      { name: "Kafka", tone: "accent" },
+      { name: "Node.js", tone: "sky" },
     ],
   },
   {
@@ -60,9 +59,10 @@ export const SKILLS: SkillGroup[] = [
       { name: "Docker", primary: true, tone: "sky" },
       { name: "Kubernetes", primary: true, tone: "sky" },
       { name: "GitLab CI/CD", tone: "accent" },
-      { name: "Argo CD", tone: "mint" },
+      { name: "Ansible", tone: "neutral" },
+      { name: "Prometheus", tone: "peach" },
+      { name: "Grafana", tone: "peach" },
       { name: "Nginx", tone: "neutral" },
-      { name: "Git", tone: "neutral" },
     ],
   },
   {
@@ -95,8 +95,17 @@ export interface SoftSkill {
 }
 
 export const SOFT_SKILLS: SoftSkill[] = [
-  { title: "Autonomie & apprentissage", description: "Adaptation rapide en environnement autodidacte, forgée à 42." },
-  { title: "Force de proposition", description: "Initiative dans le choix de solutions techniques innovantes." },
-  { title: "Esprit d'équipe", description: "Collaboration sur des projets critiques et à fort enjeu." },
-  { title: "Leadership associatif", description: "Présidence, gestion de projet et coordination bénévoles." },
+  {
+    title: "Gestion de crise & SRE",
+    description: "Maintien opérationnel et résolution d'incidents critiques en production.",
+  },
+  {
+    title: "Pragmatisme",
+    description: "Capacité à pivoter techniquement (ex: MongoDB vers SQL) pour sauver un projet.",
+  },
+  {
+    title: "Leadership associatif",
+    description: "Gouvernance, gestion de projet et conception d'infrastructures cloud privées.",
+  },
+  { title: "Autonomie & apprentissage", description: "Adaptation rapide en environnement autodidacte (42)." },
 ];

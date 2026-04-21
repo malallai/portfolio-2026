@@ -19,13 +19,13 @@ export const EDUCATION: Education[] = [
     degree: "Cursus informatique · pédagogie par projets",
     location: "Paris",
     summary:
-      "Formation intensive en informatique basée sur la pédagogie par projets, sans cours ni professeur. Apprentissage par la pratique, la collaboration et l'évaluation par les pairs.",
+      "Spécialisation dans l'ingénierie Web au sein de l'école 42. Pédagogie 100% pratique sans professeurs, forgeant une résilience face à la complexité et une très forte capacité d'apprentissage en autodidacte.",
     highlights: [
-      "Ré-implémentation de la libc et d'outils Unix en C (bas niveau).",
-      "Projets d'administration réseau et virtualisation.",
-      "Réseau social de partage photo, site de rencontre, plateforme de streaming vidéo.",
+      "**Hypertube** : Plateforme de streaming vidéo en Ruby on Rails avec moteur de téléchargement torrent concurrentiel.",
+      "**Matcha & Camagru** : Apps web en Ruby Sinatra et pur PHP (sans frameworks).",
+      "**Core** : Ré-implémentation de `ls` et d'outils Unix bas niveau en C.",
     ],
-    skills: ["C", "Docker", "Ruby on Rails", "React", "PostgreSQL"],
+    skills: ["C", "Ruby on Rails", "PHP", "Docker", "PostgreSQL"],
     palette: ["var(--color-accent-wash)", "var(--color-sky)"],
     url: "https://42.fr",
   },

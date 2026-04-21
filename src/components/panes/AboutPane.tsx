@@ -1,4 +1,5 @@
 import { Panel, SectionHeader, SectionLabel, Separator, PortraitCard } from "@/components/ui";
+import { cn } from "@/lib/utils";
 import { PROFILE, LANGUAGES, SOFT_SKILLS, PROJECTS, EDUCATION, UI } from "@/data/";
 import { MarkdownText } from "@/components/ui/MarkdownText";
 import { formatDateRange } from "@/lib/date";
@@ -29,7 +30,12 @@ export function AboutPane() {
             <div className="flex flex-col gap-6">
               {PROJECTS.map((project, index) => (
                 <div key={index} className="relative pl-6">
-                  <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-accent -translate-x-[3.5px]" />
+                  <div
+                    className={cn(
+                      "absolute left-0 top-1.5 w-2 h-2 rounded-full -translate-x-[3.5px]",
+                      project.id === "intra-42" || project.id === "caleche" ? "bg-mint" : "bg-sky",
+                    )}
+                  />
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-3">
                     <span className="text-sm font-medium text-ink">{project.role}</span>
                     <span className="mono text-[10px] text-ink-3">{project.name}</span>
