@@ -1,0 +1,450 @@
+/* CV page & component styles - uses Tailwind theme tokens */
+
+.cv-print-body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.cv-stage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 64px;
+}
+
+.cv-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cv-toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+.cv-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
+}
+.cv-export-btn:hover {
+  background: var(--color-accent-wash);
+  border-color: var(--color-accent-ink);
+  color: var(--color-accent-ink);
+}
+
+/* ── Page ── */
+.cv-page {
+  width: 210mm;
+  height: 297mm;
+  max-height: 297mm;
+  overflow: hidden;
+  background: var(--color-paper);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 20px 60px -20px rgba(20, 18, 10, 0.18);
+  padding: 14mm 18mm 12mm 18mm;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tag row ── */
+.cv-tagrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-ink-3);
+  padding: 8px 0 0 0;
+}
+.cv-hl {
+  color: var(--color-accent-ink);
+  font-style: italic;
+}
+
+/* ── Header ── */
+.cv-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-ink);
+}
+.cv-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+}
+.cv-role {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--color-ink);
+  margin-top: 6px;
+  letter-spacing: 0.005em;
+}
+.cv-dot {
+  color: var(--color-accent-ink);
+  font-style: normal;
+  margin: 0 8px;
+}
+.cv-meta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  line-height: 1.6;
+  color: var(--color-ink-3);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+.cv-meta-k {
+  color: var(--color-ink);
+}
+.cv-meta a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+}
+.cv-meta a:hover {
+  color: var(--color-accent-ink);
+  border-color: var(--color-accent-ink);
+}
+
+/* ── Summary ── */
+.cv-summary {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin: 10px 0 4px;
+  text-wrap: pretty;
+}
+
+/* ── Body grid ── */
+.cv-body-grid {
+  display: grid;
+  grid-template-columns: 62% 38%;
+  gap: 0;
+  margin-top: 12px;
+  flex: 1;
+}
+.cv-col-main {
+  padding-right: 18px;
+  border-right: 1px solid var(--color-line-2);
+}
+.cv-col-side {
+  padding-left: 18px;
+}
+
+/* ── Section ── */
+.cv-section {
+  margin-bottom: 12px;
+}
+.cv-section:last-child {
+  margin-bottom: 0;
+}
+.cv-s-head {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.cv-s-num {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-accent-ink);
+  letter-spacing: 0.1em;
+}
+.cv-s-title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.cv-s-rule {
+  height: 1px;
+  background: var(--color-line);
+}
+
+/* ── Experience ── */
+.cv-job {
+  padding: 6px 0 8px;
+  border-bottom: 1px dashed var(--color-line-2);
+}
+.cv-job-last {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.cv-job-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.cv-job-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.cv-job-company {
+  display: block;
+  color: var(--color-accent-ink);
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 2px;
+  letter-spacing: 0.005em;
+}
+.cv-job-date {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--color-ink-3);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.cv-job-loc {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-ink-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.cv-job ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+.cv-job li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+.cv-job li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 1px;
+  background: var(--color-accent-ink);
+}
+.cv-job li b {
+  font-weight: 600;
+}
+
+/* ── Education ── */
+.cv-edu {
+  padding: 5px 0 7px;
+  border-bottom: 1px dashed var(--color-line-2);
+}
+.cv-edu-last {
+  border-bottom: none;
+}
+.cv-edu-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.cv-edu-school {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.cv-edu-date {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--color-ink-3);
+  white-space: nowrap;
+}
+.cv-edu-degree {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--color-ink);
+  margin-top: 4px;
+  grid-column: 1 / -1;
+}
+.cv-edu-hl {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-ink-3);
+}
+.cv-edu-hl b {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+/* ── Skills ── */
+.cv-skill-group {
+  margin-bottom: 9px;
+}
+.cv-skill-group:last-child {
+  margin-bottom: 0;
+}
+.cv-skill-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+  margin-bottom: 5px;
+}
+.cv-skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+}
+.cv-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  letter-spacing: 0.01em;
+}
+.cv-chip-primary {
+  background: var(--color-accent-wash);
+  border-color: transparent;
+  color: var(--color-accent-ink);
+}
+
+/* ── Languages ── */
+.cv-lang-row {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--color-line-2);
+  font-size: 11.5px;
+}
+.cv-lang-row-last {
+  border-bottom: none;
+}
+.cv-lang-name {
+  font-weight: 600;
+}
+.cv-lang-level {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--color-ink-3);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+.cv-lang-bar {
+  height: 3px;
+  background: var(--color-line-2);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.cv-lang-bar > i {
+  display: block;
+  height: 100%;
+  background: var(--color-accent-ink);
+}
+
+/* ── Soft skills ── */
+.cv-soft {
+  display: grid;
+  gap: 5px;
+}
+.cv-soft-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.cv-soft-ico {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-accent-ink);
+  padding-top: 3px;
+  letter-spacing: 0.02em;
+}
+.cv-soft-item b {
+  display: block;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 1px;
+}
+.cv-soft-item span {
+  color: var(--color-ink-3);
+}
+
+/* ── Footer ── */
+.cv-foot {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-line-2);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--color-ink-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Print ── */
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  .cv-print-body {
+    background: #fff;
+  }
+  .cv-stage {
+    padding: 0;
+  }
+  .cv-page {
+    box-shadow: none;
+    width: 210mm;
+    height: 297mm;
+  }
+  .cv-toolbar {
+    display: none;
+  }
+  .cv-wrapper {
+    gap: 0;
+  }
+}
