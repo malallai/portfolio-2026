@@ -46,7 +46,7 @@ export const UI = {
     toolsCount: (n: number) => `${n} outils`,
     calloutLabel: "APPROCHE",
     calloutText:
-      "Je choisis l'outil qui livre la feature, pas celui avec le plus d'étoiles. Du stable, jusqu'à ce que ça ne suffise plus.",
+      "Je ne suis pas toujours les nouvelles technologies. Je choisis l'outil qui convient le mieux à la situation.",
   },
   connect: {
     sectionIdx: "05",
@@ -56,7 +56,7 @@ export const UI = {
     headlineL2: "sur le",
     headlineL3: "réseau.",
     description:
-      "Vous pouvez retrouver mon code, mon parcours ou tout simplement me faire un coucou sur l'une de ces plateformes.",
+      "Vous pouvez retrouver mon code et mon parcours sur l'une de ces plateformes.",
     copied: "COPIÉ",
     copy: "COPIER",
     languesTitle: "LANGUES",

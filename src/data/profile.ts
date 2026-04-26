@@ -16,7 +16,7 @@ export const PROFILE = {
   website: "malallai.fr",
   websiteUrl: "https://malallai.fr",
   summary:
-    "Développeur Fullstack & Lead technique de facto avec une forte culture SRE/DevOps. Depuis 6 ans, je conçois et maintiens des architectures scalables : de la gestion de crise en production sur le cœur de l'Intranet de 42 (25k+ utilisateurs) au déploiement d'infrastructures cloud privées ultra-sécurisées.",
+    "Développeur Fullstack & Lead technique de facto avec une forte culture SRE/DevOps. Depuis plus de 6 ans, je conçois et maintiens des architectures scalables : de la gestion de crise en production à 42 (25k+ utilisateurs) au déploiement d'infrastructures cloud.",
   portraitUrl: "portrait.jpg",
 };
 

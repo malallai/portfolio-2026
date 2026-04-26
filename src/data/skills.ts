@@ -38,6 +38,7 @@ export const SKILLS: SkillGroup[] = [
       { name: "Tailwind CSS", tone: "accent" },
       { name: "Vite", tone: "mint" },
       { name: "Astro", tone: "peach" },
+      { name: "NextJS", tone: "sky" },
     ],
   },
   {
@@ -49,6 +50,7 @@ export const SKILLS: SkillGroup[] = [
       { name: "PostgreSQL", primary: true, tone: "sky" },
       { name: "Redis", tone: "peach" },
       { name: "Kafka", tone: "accent" },
+      { name: "RabbitMQ", tone: "accent" },
       { name: "Node.js", tone: "sky" },
     ],
   },
@@ -63,6 +65,8 @@ export const SKILLS: SkillGroup[] = [
       { name: "Prometheus", tone: "peach" },
       { name: "Grafana", tone: "peach" },
       { name: "Nginx", tone: "neutral" },
+      { name: "Traefik", tone: "neutral" },
+      { name: "ArgoCD", tone: "neutral" },
     ],
   },
   {
@@ -71,7 +75,7 @@ export const SKILLS: SkillGroup[] = [
     items: [
       { name: "Linux", tone: "neutral" },
       { name: "Proxmox", tone: "peach" },
-      { name: "Wireguard", tone: "mint" },
+      { name: "OpenVPN", tone: "mint" },
       { name: "Bash", tone: "neutral" },
     ],
   },
@@ -101,11 +105,12 @@ export const SOFT_SKILLS: SoftSkill[] = [
   },
   {
     title: "Pragmatisme",
-    description: "Capacité à pivoter techniquement (ex: MongoDB vers SQL) pour sauver un projet.",
+    description: "Capacité à pivoter techniquement pour sauver un projet.",
   },
   {
     title: "Leadership associatif",
-    description: "Gouvernance, gestion de projet et conception d'infrastructures cloud privées.",
+    description: "Gouvernance, gestion de projet et conception d'infrastructures cloud.",
   },
-  { title: "Autonomie & apprentissage", description: "Adaptation rapide en environnement autodidacte (42)." },
+  { title: "Autonomie & apprentissage", description: "Adaptation rapide, autodidacte depuis toujours." },
+  { title: "Veille technologique", description: "Veille et apprentissage continu de nouvelles technologies." },
 ];
