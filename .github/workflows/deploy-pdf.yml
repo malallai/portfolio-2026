@@ -1,0 +1,54 @@
+name: Deploy PDF
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      S3_ENDPOINT: "https://s3.lacaleche.cc"
+      S3_BUCKET: "malallai"
+      PDF_FILENAME: "Malo_Allain_CV"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        run: corepack enable pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Application
+        run: pnpm run build
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Generate PDF
+        run: pnpm run generate:pdf
+
+      - name: Configure AWS CLI
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.S3_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          aws configure set default.region fr-par
+
+      - name: Extract Git Tag
+        id: extract_tag
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Upload Versioned PDF to S3
+        run: aws --endpoint-url $S3_ENDPOINT s3 cp $PDF_FILENAME.pdf s3://$S3_BUCKET/cv/$PDF_FILENAME-${{ env.TAG }}.pdf
+
+      - name: Upload Latest PDF to S3
+        run: aws --endpoint-url $S3_ENDPOINT s3 cp $PDF_FILENAME.pdf s3://$S3_BUCKET/cv/$PDF_FILENAME-latest.pdf

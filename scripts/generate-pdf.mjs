@@ -5,7 +5,7 @@ import path from "path";
 
 const PORT = 4321;
 const URL = `http://localhost:${PORT}/cv`;
-const OUTPUT_FILE = process.env.PDF_FILENAME + ".pdf";
+const OUTPUT_FILE = (process.env.PDF_FILENAME || "Malo_Allain_CV") + ".pdf";
 
 async function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
